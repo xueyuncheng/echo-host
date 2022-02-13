@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-host
+  labels:
+    app: echo-host
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: echo-host
+  template:
+    metadata:
+      labels:
+        app: echo-host
+    spec:
+      containers:
+        - name: echo-host
+          image: docker12345rekcod/echo-host:latest
+          ports:
+            - containerPort: 8080
